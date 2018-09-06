@@ -37,7 +37,7 @@ class Login extends Component {
         {this.state.username}
         <InputBox inputtype = "password" placeholder = 'password' label = 'Password'  handleValue={this.handlePassword}></InputBox>
         {this.state.password}
-        <Button btnName="Login" onClickBtn={this.usrCheck}></Button><br/>
+        <Button value="Login" onClickBtn={this.usrCheck}></Button><br/>
             <label>Not have account?<a href="/signup">Create An account?</a></label>
       </div>
     );

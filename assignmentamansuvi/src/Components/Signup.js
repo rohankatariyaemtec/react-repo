@@ -1,47 +1,28 @@
 import React, { Component } from 'react';
-import InputBox from './InputBox';
-import Button from './Button';
+import Button from './Button'
+import UsernName from './UsernName';
+import Password from './Password';
+import Email from './Email';
+import DOB from './DOB';
 class Signup extends Component {
-    constructor(props) {
-        super(props);
-        
-        this.state = {
-           username: '',
-           password: '',
-           email: '',
-           dob: ''
-        }
-        this.handleUserName = this.handleUserName.bind(this);
-        this.handlePassword = this.handlePassword.bind(this);
-        this.handleEmail = this.handleEmail.bind(this);
-        this.handleDOB = this.handleDOB.bind(this);
-     };
-     handleUserName(value) {
-        this.setState({username: value});
-    }
-    handlePassword(value) {
-        this.setState({password: value});
-    }
-    handleEmail(value) {
-        this.setState({email: value});
-    }
-    handleDOB(value) {
-        this.setState({dob: value});
-    }
+  constructor(props)
+  {
+    super(props);
+    this.onClickBtn = this.onClickBtn.bind(this);
+  }
+  onClickBtn()
+  {
+      this.props.history.push("/");
+  }
   render() {
     return (
       <div className="container">
-      <br/><h1>SignUp Form</h1><br/>
-        <InputBox inputtype = "text" placeholder = 'Username' label = 'Username' handleValue={this.handleUserName}></InputBox>
-        {this.state.username}
-        <InputBox inputtype = "password" placeholder = 'password' label = 'Password' handleValue={this.handlePassword}></InputBox>
-        {this.state.password}
-        <InputBox inputtype = "date" placeholder = 'mm/dd/yyyy' label = 'DOB' handleValue={this.handleDOB}></InputBox>
-        {this.state.dob}
-        <InputBox inputtype = "email" placeholder = 'abc@xyz.com' label = 'Email' handleValue={this.handleEmail}></InputBox>
-        {this.state.email}
-        <Button btnName="Signup" onClick=""></Button><br/>
-        <label>Already have account?<a href="/">Login</a></label>
+        <br/><h1>LogInForm</h1><br/>
+        <UsernName></UsernName>
+        <Password></Password>
+        <Email></Email>
+        <DOB></DOB>
+        <Button value="Signup" onClickBtn={this.onClickBtn}></Button>
       </div>
     );
   }

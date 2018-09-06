@@ -1,22 +1,23 @@
 import React from 'react';
-class Button extends React.Component{
+
+class InputBox extends React.Component{
     constructor(props)
     {
         super(props);
-        this.onclickbtn = this.onclickbtn.bind(this);
+        this.onClickBtn = this.onClickBtn.bind(this);
     }
-    onclickbtn()
+    onClickBtn()
     {
         this.props.onClickBtn();
     }
     render()
     {
         return (
-            <div>
-                <input type = "button" className="btn btn-primary" onClick={this.onclickbtn} value={this.props.btnName}/>
-            </div>
+        <div className="form-group">
+            <button className="btn btn-primary" onClick={this.onClickBtn}>{this.props.value}</button>
+        </div>
         );
     }
 }
 
-export default Button;
+export default InputBox;

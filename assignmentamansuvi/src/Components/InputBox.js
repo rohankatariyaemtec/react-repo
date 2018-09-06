@@ -1,24 +1,23 @@
 import React from 'react';
+
 class InputBox extends React.Component{
-    constructor(props) {
+    constructor(props)
+    {
         super(props);
-        
-        this.state = {
-           data: 'Initial data...'
-        }
-        this.updateState = this.updateState.bind(this);
-     };
-     updateState(e) {
-        this.setState({data: e.target.value});
-        this.props.handleValue(this.state.data);
-     }
+        this.handleValue = this.handleValue.bind(this);
+    }
+    handleValue(e)
+    {
+        this.props.handleValue(e.target.value);
+    }
     render()
     {
         return (
-            <div className="form-group col-lg-5">
-                <label>{this.props.label}:</label>
-                <input type = {this.props.inputtype} placeholder = {this.props.placeholder} className="form-control" onChange={this.updateState}/>
-            </div>
+        <div className="form-group">
+            <label>{this.props.placeholder}</label>
+            <input type={this.props.type} placeholder={this.props.placeholder} onBlur={this.handleValue} className="form-control col-lg-5"/>
+            <label className="text-danger">{this.props.error}</label>
+        </div>
         );
     }
 }
